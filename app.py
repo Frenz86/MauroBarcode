@@ -25,7 +25,7 @@ def main():
 
     if file_image:
         input_img = Image.open(file_image)
-        flipped_img = input_img.transpose(Image.FLIP_LEFT_RIGHT)
+        #flipped_img = input_img.transpose(Image.FLIP_LEFT_RIGHT)
         one, two = st.columns(2)
         with one:
             pass
@@ -36,7 +36,7 @@ def main():
         if st.button("Verifica Barcode"):
             #################################################
             #flipped_img = Image.open("test.jpg")
-            image = np.array(flipped_img) # convert to array
+            image = np.array(input_img) # convert to array
             st.image(image, caption='Uploaded Image', use_column_width=True)
             barcodes = barcode(image)
             if barcodes:
