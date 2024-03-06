@@ -1,5 +1,4 @@
 import streamlit as st
-import cv2
 from pyzbar import pyzbar
 import numpy as np
 from PIL import Image 
@@ -36,7 +35,6 @@ def main():
             pass
         if st.button("Verifica Barcode"):
             #################################################
-                ###########################################################
             #flipped_img = Image.open("test.jpg")
             image = np.array(flipped_img) # convert to array
             st.image(image, caption='Uploaded Image', use_column_width=True)
@@ -49,16 +47,10 @@ def main():
                     st.dataframe(df[df['Collo']==bar])
             else:
                 st.error("NON CI SONO BARCODE NELLA FOTO!!!!!!")
-
             #################################################
-    
     else:
         st.write("Scatta la foto per Classificare il Barcode")
 
-
-
-
-    
 if __name__ == '__main__':
     main()
 
