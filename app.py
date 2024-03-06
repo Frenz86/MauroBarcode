@@ -10,7 +10,6 @@ def main():
     SHEET_NAME = 'test'
     foglio_id=0
     url = f'https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet={SHEET_NAME}/edit#gid={foglio_id}'
-    df = pd.read_csv(url,dtype={'Collo':str})
 
     def barcode(image):
         # decodes all barcodes from an image
@@ -35,6 +34,7 @@ def main():
             pass
         if st.button("Verifica Barcode"):
             #################################################
+            df = pd.read_csv(url,dtype={'Collo':str})
             #flipped_img = Image.open("test.jpg")
             image = np.array(input_img) # convert to array
             st.image(image, caption='Uploaded Image', use_column_width=True)
